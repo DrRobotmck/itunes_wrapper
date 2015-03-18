@@ -9,6 +9,8 @@ require 'pry'
 API_ROOT = 'https://itunes.apple.com/search?'
 
 class ItunesApp < Sinatra::Base
+
+	before { response.headers["Access-Control-Allow-Origin"] = '*' }
 	get '/' do
 		["<h1>The API has the following endpoints:</h1>",
 			"<p><strong>/api/search_for_artist -> parameter of 'artist' must be provided</strong></p>",
